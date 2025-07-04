@@ -121,6 +121,57 @@
             text-shadow: 0 4px 8px rgba(216, 27, 96, 0.4); /* Pinker, larger text shadow on hover */
             transform: scale(1.01); /* Slight grow for title */
         }
+
+        /* Quiz specific styles */
+        .quiz-question-card {
+            border-left: 4px solid #FF4081; /* Accent pink for quiz cards */
+        }
+        .quiz-question-card input[type="radio"] {
+            accent-color: #E91E63; /* Pink radio button highlight */
+        }
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+            animation: fadeInSlideUp 0.3s ease-out forwards;
+            border: 2px solid #E91E63;
+        }
+        .message-box button {
+            background-color: #E91E63;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.2s ease;
+        }
+        .message-box button:hover {
+            background-color: #C2185B;
+        }
+        /* Love message specific styles */
+        .love-message {
+            background-color: #FFC0CB; /* Light pink */
+            color: #880E4F; /* Darker pink text */
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            font-size: 2.5rem; /* Large font size */
+            font-weight: bold;
+            margin-top: 4rem;
+            box-shadow: 0 8px 16px rgba(255, 192, 203, 0.5); /* Soft pink shadow */
+            animation: fadeInSlideUp 1s ease-out forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body class="p-4 sm:p-6 md:p-8">
@@ -553,7 +604,7 @@
                             <textarea id="code-button-simple" class="code-editor" rows="5">
 <html lang="en">
 <body>
-    <button onclick="alert('Button clicked!')">Click Me</button>
+    <button onclick="showMessage('Button clicked!')">Click Me</button>
 </body>
 </html></textarea>
                         </div>
@@ -732,6 +783,88 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Section: Quiz Time! -->
+            <section class="mb-10">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Quiz Time! Test Your Knowledge!</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Quiz Question 1 -->
+                    <div class="quiz-question-card tag-card p-4 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3 text-pink-600">Question 1: What does &lt;p&gt; stand for?</h3>
+                        <div class="mb-3">
+                            <input type="radio" id="q1-opt1" name="q1" value="paragraph" class="mr-2">
+                            <label for="q1-opt1">Paragraph</label><br>
+                            <input type="radio" id="q1-opt2" name="q1" value="picture" class="mr-2">
+                            <label for="q1-opt2">Picture</label><br>
+                            <input type="radio" id="q1-opt3" name="q1" value="page" class="mr-2">
+                            <label for="q1-opt3">Page</label>
+                        </div>
+                        <button class="run-button" onclick="checkAnswer('q1', 'paragraph', 'q1-feedback')">Check Answer</button>
+                        <p id="q1-feedback" class="mt-2 text-sm font-semibold"></p>
+                    </div>
+
+                    <!-- Quiz Question 2 -->
+                    <div class="quiz-question-card tag-card p-4 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3 text-pink-600">Question 2: Which tag is used to create a link?</h3>
+                        <div class="mb-3">
+                            <input type="radio" id="q2-opt1" name="q2" value="img" class="mr-2">
+                            <label for="q2-opt1">&lt;img&gt;</label><br>
+                            <input type="radio" id="q2-opt2" name="q2" value="a" class="mr-2">
+                            <label for="q2-opt2">&lt;a&gt;</label><br>
+                            <input type="radio" id="q2-opt3" name="q2" value="link" class="mr-2">
+                            <label for="q2-opt3">&lt;link&gt;</label>
+                        </div>
+                        <button class="run-button" onclick="checkAnswer('q2', 'a', 'q2-feedback')">Check Answer</button>
+                        <p id="q2-feedback" class="mt-2 text-sm font-semibold"></p>
+                    </div>
+
+                    <!-- Quiz Question 3 -->
+                    <div class="quiz-question-card tag-card p-4 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3 text-pink-600">Question 3: Where does the visible content of an HTML page go?</h3>
+                        <div class="mb-3">
+                            <input type="radio" id="q3-opt1" name="q3" value="head" class="mr-2">
+                            <label for="q3-opt1">&lt;head&gt;</label><br>
+                            <input type="radio" id="q3-opt2" name="q3" value="html" class="mr-2">
+                            <label for="q3-opt2">&lt;html&gt;</label><br>
+                            <input type="radio" id="q3-opt3" name="q3" value="body" class="mr-2">
+                            <label for="q3-opt3">&lt;body&gt;</label>
+                        </div>
+                        <button class="run-button" onclick="checkAnswer('q3', 'body', 'q3-feedback')">Check Answer</button>
+                        <p id="q3-feedback" class="mt-2 text-sm font-semibold"></p>
+                    </div>
+
+                    <!-- Quiz Question 4 -->
+                    <div class="quiz-question-card tag-card p-4 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3 text-pink-600">Question 4: Which tag is used for a bulleted list?</h3>
+                        <div class="mb-3">
+                            <input type="radio" id="q4-opt1" name="q4" value="ol" class="mr-2">
+                            <label for="q4-opt1">&lt;ol&gt;</label><br>
+                            <input type="radio" id="q4-opt2" name="q4" value="li" class="mr-2">
+                            <label for="q4-opt2">&lt;li&gt;</label><br>
+                            <input type="radio" id="q4-opt3" name="q4" value="ul" class="mr-2">
+                            <label for="q4-opt3">&lt;ul&gt;</label>
+                        </div>
+                        <button class="run-button" onclick="checkAnswer('q4', 'ul', 'q4-feedback')">Check Answer</button>
+                        <p id="q4-feedback" class="mt-2 text-sm font-semibold"></p>
+                    </div>
+
+                    <!-- Quiz Question 5: Write Code -->
+                    <div class="quiz-question-card tag-card p-4 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3 text-pink-600">Question 5: Write the HTML code to display "Hello, Bestie!" as a main heading.</h3>
+                        <textarea id="q5-code-answer" class="code-editor" rows="4">&lt;h1&gt;Hello, Bestie!&lt;/h1&gt;</textarea>
+                        <button class="run-button mt-4" onclick="checkCodeAnswer('q5-code-answer', '<h1>Hello, Bestie!</h1>', 'q5-feedback')">Check My Code</button>
+                        <p id="q5-feedback" class="mt-2 text-sm font-semibold"></p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Love Message Section -->
+            <section class="love-message">
+                <p>Love you so much! ❤️</p>
+            </section>
+
         </main>
 
         <!-- Footer Section -->
@@ -758,6 +891,7 @@
             const oscillator = audioContext.createOscillator();
             oscillator.type = 'sine'; // Sine wave for a clean tone
             oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // A4 note
+            oscillator.detune.setValueAtTime(0, audioContext.currentTime); // No detune
 
             // Create a gain node (volume control)
             const gainNode = audioContext.createGain();
@@ -774,6 +908,32 @@
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 0.1); // Stop after 0.1 seconds
         }
+
+        /**
+         * Plays a distinct incorrect answer sound using Web Audio API.
+         */
+        function playIncorrectSound() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sawtooth'; // Sawtooth wave for a harsher tone
+            oscillator.frequency.setValueAtTime(150, audioContext.currentTime); // Lower frequency (e.g., D3)
+            oscillator.detune.setValueAtTime(-100, audioContext.currentTime); // Slight detune for a "buzz"
+
+            const gainNode = audioContext.createGain();
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime); // Slightly higher volume for feedback
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.2); // Fade out over 0.2 seconds
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.2);
+        }
+
 
         /**
          * Function to open a new window and display the HTML code from a specific textarea.
@@ -794,8 +954,107 @@
             }
         }
 
-        // Staggered animation for cards and section titles
+        /**
+         * Shows a custom message box instead of alert().
+         * @param {string} message The message to display.
+         */
+        function showMessage(message) {
+            const messageBox = document.createElement('div');
+            messageBox.className = 'message-box';
+            messageBox.innerHTML = `
+                <p>${message}</p>
+                <button onclick="this.parentNode.remove()">OK</button>
+            `;
+            document.body.appendChild(messageBox);
+        }
+
+        /**
+         * Checks the selected answer for a quiz question and provides feedback.
+         * @param {string} questionName The 'name' attribute of the radio buttons for the question.
+         * @param {string} correctAnswer The correct value for the question.
+         * @param {string} feedbackId The ID of the paragraph element to display feedback.
+         */
+        function checkAnswer(questionName, correctAnswer, feedbackId) {
+            const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+            const feedbackElement = document.getElementById(feedbackId);
+
+            if (selectedOption) {
+                if (selectedOption.value === correctAnswer) {
+                    playClickSound(); // Play correct sound
+                    feedbackElement.textContent = "Correct! 🎉";
+                    feedbackElement.classList.remove('text-red-500');
+                    feedbackElement.classList.add('text-green-600');
+                } else {
+                    playIncorrectSound(); // Play incorrect sound
+                    feedbackElement.textContent = "Incorrect. Try again! 🤔";
+                    feedbackElement.classList.remove('text-green-600');
+                    feedbackElement.classList.add('text-red-500');
+                }
+            } else {
+                playIncorrectSound(); // Play incorrect sound if no option selected
+                feedbackElement.textContent = "Please select an answer.";
+                feedbackElement.classList.remove('text-green-600');
+                feedbackElement.classList.add('text-red-500');
+            }
+        }
+
+        /**
+         * Checks the code answer from a textarea for a quiz question.
+         * @param {string} textareaId The ID of the textarea containing the user's code.
+         * @param {string} correctCode The correct code snippet.
+         * @param {string} feedbackId The ID of the paragraph element to display feedback.
+         */
+        function checkCodeAnswer(textareaId, correctCode, feedbackId) {
+            const userAnswer = document.getElementById(textareaId).value.trim();
+            const normalizedCorrectCode = correctCode.trim(); // Trim whitespace from correct answer
+
+            const feedbackElement = document.getElementById(feedbackId);
+
+            // Simple check: compare after removing all whitespace and converting to lowercase
+            // This makes the comparison more forgiving for minor formatting differences
+            const normalizeString = (str) => str.replace(/\s/g, '').toLowerCase();
+
+            if (normalizeString(userAnswer) === normalizeString(normalizedCorrectCode)) {
+                playClickSound(); // Play correct sound
+                feedbackElement.textContent = "Correct! 🎉 Your code works!";
+                feedbackElement.classList.remove('text-red-500');
+                feedbackElement.classList.add('text-green-600');
+            } else {
+                playIncorrectSound(); // Play incorrect sound
+                feedbackElement.textContent = "Incorrect. Double-check your code! 🤔";
+                feedbackElement.classList.remove('text-green-600');
+                feedbackElement.classList.add('text-red-500');
+            }
+        }
+
+        // Add event listeners to radio buttons to clear feedback on change
         document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', (event) => {
+                    const questionName = event.target.name;
+                    const feedbackId = `${questionName}-feedback`;
+                    const feedbackElement = document.getElementById(feedbackId);
+                    if (feedbackElement) {
+                        feedbackElement.textContent = ''; // Clear previous feedback
+                        feedbackElement.classList.remove('text-green-600', 'text-red-500');
+                    }
+                });
+            });
+
+            // Add event listener to textarea for code questions to clear feedback on change
+            document.querySelectorAll('.code-editor').forEach(textarea => {
+                textarea.addEventListener('input', (event) => {
+                    const feedbackId = event.target.id.replace('-code-answer', '-feedback');
+                    const feedbackElement = document.getElementById(feedbackId);
+                    if (feedbackElement) {
+                        feedbackElement.textContent = ''; // Clear previous feedback
+                        feedbackElement.classList.remove('text-green-600', 'text-red-500');
+                    }
+                });
+            });
+
+
+            // Staggered animation for cards and section titles
             const tagCards = document.querySelectorAll('.tag-card');
             tagCards.forEach((card, index) => {
                 card.style.animationDelay = `${0.1 + index * 0.05}s`;
