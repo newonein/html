@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Tags Reference - Pink Power with World-Class Animations!</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Keyframe Animations */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.01); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Custom styles for better readability and aesthetics */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #FDF2F8, #FFEBF2, #FCE4EC); /* Pink gradient background */
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite; /* Subtle background animation */
+            color: #333; /* Darker text color for contrast */
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+        }
+        .container {
+            max-width: 1000px;
+            background-color: #FFFFFF; /* White container background */
+            animation: fadeInSlideUp 0.8s ease-out forwards; /* Container fades in */
+            animation-delay: 0.2s; /* Delay for container */
+            opacity: 0; /* Start hidden for animation */
+        }
+        .tag-card {
+            background-color: #ffffff;
+            border-left: 4px solid #E91E63; /* Deep Pink left border for emphasis */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+            animation: fadeInSlideUp 0.6s ease-out forwards; /* Cards fade in */
+            opacity: 0; /* Start hidden for animation */
+            /* Animation delay set by JS for staggered effect */
+        }
+        .tag-card:hover {
+            transform: translateY(-8px) scale(1.02); /* More pronounced lift and slight grow effect */
+            box-shadow: 0 12px 24px rgba(233, 30, 99, 0.3); /* Pinker, larger shadow on hover */
+            border-left: 4px solid #C2185B; /* Darker pink border on hover */
+        }
+        .code-editor {
+            width: 100%;
+            min-height: 60px;
+            padding: 0.75rem;
+            border: 1px solid #FCE4EC; /* Light pink border for editor */
+            border-radius: 0.375rem;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.875rem;
+            background-color: #FFF5F9; /* Even lighter pink for editor background */
+            resize: vertical;
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        h2 {
+            border-bottom: 2px solid #F8BBD0; /* Light pink underline for section titles */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInSlideUp 0.7s ease-out forwards; /* Section titles fade in */
+            opacity: 0; /* Start hidden for animation */
+            /* Animation delay set by JS for staggered effect */
+        }
+        /* Button specific styles and animations */
+        .run-button {
+            background-color: #E91E63; /* Deep Pink background */
+            color: white;
+            padding: 0.6rem 1.2rem; /* Slightly larger padding */
+            border-radius: 0.5rem; /* More rounded corners */
+            font-weight: 700; /* Bolder text */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+        }
+        .run-button:hover {
+            background-color: #C2185B; /* Darker Deep Pink on hover */
+            transform: translateY(-3px) scale(1.03); /* Lift and slight grow effect */
+            box-shadow: 0 6px 12px rgba(233, 30, 99, 0.4); /* More prominent pink shadow on hover */
+        }
+        .run-button:active {
+            transform: translateY(0); /* Press effect */
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inset shadow for pressed look */
+        }
+
+        /* Header specific animations */
+        .header-title {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Initial subtle text shadow */
+            transition: text-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+            animation: pulse 2s infinite ease-in-out; /* Pulsing animation for title */
+        }
+        .header-title:hover {
+            text-shadow: 0 4px 8px rgba(216, 27, 96, 0.4); /* Pinker, larger text shadow on hover */
+            transform: scale(1.01); /* Slight grow for title */
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+    <div class="container mx-auto bg-white rounded-lg shadow-xl p-6 sm:p-8 md:p-10">
+        <!-- Header Section -->
+        <header class="text-center mb-10">
+            <h1 class="header-title text-4xl sm:text-5xl font-extrabold text-pink-700 mb-4 rounded-md p-2 bg-pink-100 shadow-md">
+                Simple HTML Tags Reference - Pink Power with World-Class Animations!
+            </h1>
+            <p class="text-lg text-gray-600">
+                Learn the most important HTML tags. Edit the code and click "Run Code" to see live examples!
+            </p>
+        </header>
+
+        <!-- Main Content Area -->
+        <main>
+            <!-- Section: Basic Page Structure -->
+            <section class="mb-10">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Basic Page Structure</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;!DOCTYPE html&gt;</h3>
+                            <p class="text-gray-700">Tells the browser this is an HTML5 page.</p>
+                            <textarea id="code-doctype-simple" class="code-editor" rows="5"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My First Doc</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-doctype-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;html&gt;</h3>
+                            <p class="text-gray-700">The main container for all HTML content.</p>
+                            <textarea id="code-html-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <p>This content is inside the HTML document.</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-html-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;head&gt;</h3>
+                            <p class="text-gray-700">Holds information about the page (like its title), not visible on the page itself.</p>
+                            <textarea id="code-head-simple" class="code-editor" rows="5">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Title Here</title>
+</head>
+<body>
+    <p>Look at the browser tab for the title!</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-head-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;body&gt;</h3>
+                            <p class="text-gray-700">Contains all the visible content of your web page.</p>
+                            <textarea id="code-body-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <h1>Welcome!</h1>
+    <p>This is what you see on the website.</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-body-simple')">Run Code</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Metadata & Styling -->
+            <section class="mb-10">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Metadata & Styling</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;meta&gt;</h3>
+                            <p class="text-gray-700">Provides extra info about the page (like character set or how it looks on mobile).</p>
+                            <textarea id="code-meta-simple" class="code-editor" rows="5">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Example</title>
+</head>
+<body>
+    <p>This page uses meta tags.</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-meta-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;link&gt;</h3>
+                            <p class="text-gray-700">Links your HTML to external files, like CSS stylesheets.</p>
+                            <textarea id="code-link-simple" class="code-editor" rows="5">
+<html lang="en">
+<head>
+    <title>Link Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body>
+    <p class="text-red-500">This text is red from a linked stylesheet!</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-link-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;style&gt;</h3>
+                            <p class="text-gray-700">Lets you write CSS styling directly inside your HTML page.</p>
+                            <textarea id="code-style-simple" class="code-editor" rows="6">
+<html lang="en">
+<head>
+    <title>Style Example</title>
+    <style>
+        h1 { color: green; }
+        p { font-family: sans-serif; }
+    </style>
+</head>
+<body>
+    <h1>Green Heading</h1>
+    <p>Plain paragraph.</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-style-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;script&gt;</h3>
+                            <p class="text-gray-700">Used to add interactive JavaScript code to your page.</p>
+                            <textarea id="code-script-simple" class="code-editor" rows="7">
+<html lang="en">
+<head><title>Script Example</title></head>
+<body>
+    <p id="greeting">Hello!</p>
+    <button onclick="changeText()">Change Text</button>
+    <script>
+        function changeText() {
+            document.getElementById('greeting').innerText = 'Hello, JavaScript!';
+        }
+    </script>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-script-simple')">Run Code</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Text & Links -->
+            <section class="mb-10">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Text & Links</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;h1&gt; to &lt;h6&gt;</h3>
+                            <p class="text-gray-700">Used for headings. &lt;h1&gt; is the biggest, &lt;h6&gt; is the smallest.</p>
+                            <textarea id="code-headings-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <h1>Main Heading</h1>
+    <h2>Sub-heading</h2>
+    <h3>Smaller Heading</h3>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-headings-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;p&gt;</h3>
+                            <p class="text-gray-700">For a paragraph of text.</p>
+                            <textarea id="code-p-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-p-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;a&gt;</h3>
+                            <p class="text-gray-700">Creates a link to another page or website.</p>
+                            <textarea id="code-a-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <p>Visit <a href="https://www.google.com" target="_blank">Google</a></p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-a-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;strong&gt;</h3>
+                            <p class="text-gray-700">Makes text bold and important.</p>
+                            <textarea id="code-strong-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <p>This is <strong>important</strong> text.</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-strong-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;em&gt;</h3>
+                            <p class="text-gray-700">Makes text italic and emphasized.</p>
+                            <textarea id="code-em-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <p>This is <em>emphasized</em> text.</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-em-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;br&gt;</h3>
+                            <p class="text-gray-700">Starts a new line of text.</p>
+                            <textarea id="code-br-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <p>First line.<br>Second line.</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-br-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;blockquote&gt;</h3>
+                            <p class="text-gray-700">Used for longer quotes from other sources.</p>
+                            <textarea id="code-blockquote-simple" class="code-editor" rows="6">
+<html lang="en">
+<body>
+    <blockquote>
+        <p>The only way to do great work is to love what you do.</p>
+        <cite>Steve Jobs</cite>
+    </blockquote>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-blockquote-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;code&gt;</h3>
+                            <p class="text-gray-700">Displays a small piece of computer code.</p>
+                            <textarea id="code-code-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <p>Use <code>console.log("Hello");</code> in JavaScript.</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-code-simple')">Run Code</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Lists & Images -->
+            <section class="mb-10">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Lists & Images</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;ul&gt; &amp; &lt;li&gt;</h3>
+                            <p class="text-gray-700">For a bulleted list of items.</p>
+                            <textarea id="code-ul-simple" class="code-editor" rows="6">
+<html lang="en">
+<body>
+    <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Orange</li>
+    </ul>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-ul-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;ol&gt; &amp; &lt;li&gt;</h3>
+                            <p class="text-gray-700">For a numbered list of items.</p>
+                            <textarea id="code-ol-simple" class="code-editor" rows="6">
+<html lang="en">
+<body>
+    <ol>
+        <li>First step</li>
+        <li>Second step</li>
+        <li>Third step</li>
+    </ol>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-ol-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;img&gt;</h3>
+                            <p class="text-gray-700">Displays an image on your page.</p>
+                            <textarea id="code-img-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <img src="https://placehold.co/150x100/ADD8E6/000000?text=Image" alt="A placeholder image">
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-img-simple')">Run Code</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Media -->
+            <section class="mb-10">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Media</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;audio&gt;</h3>
+                            <p class="text-gray-700">Embeds sound files (like MP3s) into your page.</p>
+                            <textarea id="code-audio-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <audio controls>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-audio-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;video&gt;</h3>
+                            <p class="text-gray-700">Embeds video files (like MP4s) into your page.</p>
+                            <textarea id="code-video-simple" class="code-editor" rows="6">
+<html lang="en">
+<body>
+    <video width="320" height="240" controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-video-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;iframe&gt;</h3>
+                            <p class="text-gray-700">Embeds another web page inside your current page.</p>
+                            <textarea id="code-iframe-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <iframe src="https://www.w3schools.com" title="W3Schools" width="100%" height="300px"></iframe>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-iframe-simple')">Run Code</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Forms & Inputs -->
+            <section class="mb-10">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Forms & Inputs</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;form&gt;</h3>
+                            <p class="text-gray-700">Creates a form to collect user input.</p>
+                            <textarea id="code-form-simple" class="code-editor" rows="7">
+<html lang="en">
+<body>
+    <form action="#">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-form-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;input&gt;</h3>
+                            <p class="text-gray-700">Creates different types of input fields (text, checkbox, button, etc.).</p>
+                            <textarea id="code-input-simple" class="code-editor" rows="7">
+<html lang="en">
+<body>
+    Text: <input type="text" placeholder="Your name"><br>
+    Checkbox: <input type="checkbox"><br>
+    Submit Button: <input type="submit" value="Send">
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-input-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;button&gt;</h3>
+                            <p class="text-gray-700">A clickable button.</p>
+                            <textarea id="code-button-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <button onclick="alert('Button clicked!')">Click Me</button>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-button-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;textarea&gt;</h3>
+                            <p class="text-gray-700">For multi-line text input (like comments).</p>
+                            <textarea id="code-textarea-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <textarea rows="4" cols="30" placeholder="Your message..."></textarea>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-textarea-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;select&gt; &amp; &lt;option&gt;</h3>
+                            <p class="text-gray-700">Creates a dropdown list (&lt;select&gt;) with choices (&lt;option&gt;).</p>
+                            <textarea id="code-select-simple" class="code-editor" rows="7">
+<html lang="en">
+<body>
+    <select>
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="orange">Orange</option>
+    </select>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-select-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;label&gt;</h3>
+                            <p class="text-gray-700">Defines a label for an input field.</p>
+                            <textarea id="code-label-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <label for="email">Email:</label>
+    <input type="email" id="email">
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-label-simple')">Run Code</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Basic Layout -->
+            <section class="mb-10">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">Basic Layout & Structure</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;div&gt;</h3>
+                            <p class="text-gray-700">A general container for grouping content.</p>
+                            <textarea id="code-div-simple" class="code-editor" rows="6">
+<html lang="en">
+<head>
+    <style>div { border: 1px solid pink; padding: 10px; margin: 5px; }</style>
+</head>
+<body>
+    <div>This is inside a div.</div>
+    <div>Another div.</div>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-div-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;span&gt;</h3>
+                            <p class="text-gray-700">A general container for small pieces of text or inline content.</p>
+                            <textarea id="code-span-simple" class="code-editor" rows="6">
+<html lang="en">
+<head>
+    <style>span { color: hotpink; }</style>
+</head>
+<body>
+    <p>This is <span style="color: deeppink;">pink</span> text.</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-span-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;header&gt;</h3>
+                            <p class="text-gray-700">Represents the top section of a page or a section (like a logo and navigation).</p>
+                            <textarea id="code-header-simple" class="code-editor" rows="7">
+<html lang="en">
+<body>
+    <header>
+        <h1>My Website Logo</h1>
+        <nav>Home | About</nav>
+    </header>
+    <p>Page content starts here.</p>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-header-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;nav&gt;</h3>
+                            <p class="text-gray-700">Contains navigation links for your website.</p>
+                            <textarea id="code-nav-simple" class="code-editor" rows="6">
+<html lang="en">
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+        </ul>
+    </nav>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-nav-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;footer&gt;</h3>
+                            <p class="text-gray-700">Represents the bottom section of a page (like copyright info).</p>
+                            <textarea id="code-footer-simple" class="code-editor" rows="5">
+<html lang="en">
+<body>
+    <p>Main content.</p>
+    <footer>
+        <p>&copy; 2025 My Simple Site</p>
+    </footer>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-footer-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;section&gt;</h3>
+                            <p class="text-gray-700">Groups related content together, like a chapter in a book.</p>
+                            <textarea id="code-section-simple" class="code-editor" rows="7">
+<html lang="en">
+<body>
+    <section>
+        <h2>About Our Company</h2>
+        <p>We do amazing things!</p>
+    </section>
+    <section>
+        <h2>Our Team</h2>
+        <p>Meet the people behind it.</p>
+    </section>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-section-simple')">Run Code</button>
+                    </div>
+                    <div class="tag-card p-4 rounded-lg">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-600">&lt;article&gt;</h3>
+                            <p class="text-gray-700">For self-contained content, like a blog post or news story.</p>
+                            <textarea id="code-article-simple" class="code-editor" rows="6">
+<html lang="en">
+<body>
+    <article>
+        <h2>My Blog Post Title</h2>
+        <p>This is the content of my blog post.</p>
+    </article>
+</body>
+</html></textarea>
+                        </div>
+                        <button class="run-button mt-4" onclick="runCode('code-article-simple')">Run Code</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="text-center mt-10 text-gray-500 text-sm">
+            <p>&copy; 2025 Simple HTML Reference. All rights reserved.</p>
+            <p>Built for easy learning.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize AudioContext for sound effects
+        let audioContext;
+
+        /**
+         * Plays a simple click sound using Web Audio API.
+         */
+        function playClickSound() {
+            // Check for AudioContext support and initialize if not already
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+
+            // Create an oscillator (sound source)
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine'; // Sine wave for a clean tone
+            oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // A4 note
+
+            // Create a gain node (volume control)
+            const gainNode = audioContext.createGain();
+            gainNode.gain.setValueAtTime(0.2, audioContext.currentTime); // Start at a low volume
+
+            // Connect oscillator to gain, and gain to speakers
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            // Schedule the volume to fade out quickly (creates a click effect)
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1); // Fade out in 0.1 seconds
+
+            // Start and stop the oscillator
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1); // Stop after 0.1 seconds
+        }
+
+        /**
+         * Function to open a new window and display the HTML code from a specific textarea.
+         * @param {string} textareaId The ID of the textarea element containing the HTML code.
+         */
+        function runCode(textareaId) {
+            playClickSound(); // Play the click sound
+
+            const htmlContent = document.getElementById(textareaId).value;
+            const newWindow = window.open('', '_blank');
+            if (newWindow) {
+                // Write the HTML content to the new window
+                newWindow.document.write(htmlContent);
+                newWindow.document.close(); // Close the document stream
+            } else {
+                // Fallback for pop-up blockers (using console.error as alert() is disallowed)
+                console.error('Failed to open new window. Pop-up blocker might be active. Please allow pop-ups for this site.');
+            }
+        }
+
+        // Staggered animation for cards and section titles
+        document.addEventListener('DOMContentLoaded', () => {
+            const tagCards = document.querySelectorAll('.tag-card');
+            tagCards.forEach((card, index) => {
+                card.style.animationDelay = `${0.1 + index * 0.05}s`;
+            });
+
+            const sectionTitles = document.querySelectorAll('h2');
+            sectionTitles.forEach((title, index) => {
+                title.style.animationDelay = `${0.3 + index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
